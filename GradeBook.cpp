@@ -10,11 +10,6 @@ void readGrades(string names[], int scores[][test_Max], int &numStudents)
         cerr << "Unable to open file grades.txt";
         exit(1); // terminate with error
     }
-    int grade;
-    while (inFile >> grade) {
-        cout << grade << endl;
-    }
-    
 	while (inFile >> names[numStudents] && numStudents < student_Max)
         {
         for (int i = 0; i < test_Max; i++) 
@@ -52,17 +47,12 @@ char getLetter(double average)
 }
 void displayGrades(string names[], int scores[][test_Max], double averages[], int numStudents)
 {
-    cout << "Name:     ";
-    for (int i = 0; i < test_Max; i++)
-    {
-        cout << "Average:      Letter Grade:" << endl;
-    }
+    cout << "Name:      Average:   Letter Grade:" << endl;
     for (int i = 0; i < numStudents; i++)
     {
-        cout << names[i] << "\t";
-        for (int j = 0; j < test_Max; j++)
-            cout << scores[i][j] << "\t";
-        cout << averages[i] << "\t" << getLetter(averages[i]) << endl;
+        cout << names[i] << "      ";
+        cout << averages[i] << "      ";
+        cout << getLetter(averages[i]) << endl;
     }
 }
 int main()
